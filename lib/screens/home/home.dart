@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rpg/screens/home/character_card.dart';
 import 'package:rpg/shared/styledbutton.dart';
 import 'package:rpg/shared/styledtext.dart';
+import 'package:rpg/models/character.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List<String> characters = ["Character 1", "Character 2", "Character 3"];
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
             Expanded(
               child: ListView.builder(itemBuilder: (_,index){
                 
-                return charactercard(characters[index]);
+                return CharacterCard(characters[index]);
               },itemCount: characters.length,),
             ),
             styledbutton(onPressed: (){}, child: Styledheading("Create new"))
