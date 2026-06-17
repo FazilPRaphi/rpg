@@ -128,7 +128,7 @@ void updateVocation(Vocation vocation){
 
                   Center(child: Icon(Icons.code, color: AppColors.primaryColor)),
                   Center(child: Styledheading("Good Luck")),
-                  Center(child: StyledText("Enjoy the journey")),
+                  Center(child: StyledText("Enjoy the journey...")),
                   const SizedBox(height: 30),
                   styledbutton(onPressed: handlesubmit,
                    child: Styledheading("Create character"),),
