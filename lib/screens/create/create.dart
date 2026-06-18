@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rpg/models/character.dart';
 import 'package:rpg/models/vocation.dart';
 import 'package:rpg/screens/create/vocation_card.dart';
+import 'package:rpg/screens/home/home.dart';
 import 'package:rpg/shared/styledtext.dart';
 import 'package:rpg/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +24,7 @@ class _CreateState extends State<Create> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     _nameController.dispose();
     _sloganController.dispose();
     super.dispose();
@@ -31,11 +32,37 @@ class _CreateState extends State<Create> {
   //submit handle
   void handlesubmit(){
     if(_nameController.text.trim().isEmpty){
-     
+      showDialog(context:context,builder:(ctx){
+        return AlertDialog(
+          
+          title: StyledText("Missing Name"),
+          content: StyledText("Every character needs a name"),
+          actions: [
+            styledbutton(onPressed: (){
+              Navigator.pop(context);
+            }, child: StyledText("Close")),
+          ],
+            actionsAlignment: MainAxisAlignment.center,
+        );
+      },
+      );
      return;
     }
     if(_sloganController.text.trim().isEmpty){
+        showDialog(context:context,builder:(ctx){
+        return AlertDialog(
 
+          title: StyledText("Missing Slogan"),
+          content: StyledText("Every character needs a slogan"),
+          actions: [
+            styledbutton(onPressed: (){
+              Navigator.pop(context);
+            }, child: StyledText("close")),
+          ],
+            actionsAlignment: MainAxisAlignment.center,
+        );
+      },
+      );
 
       return; 
     }
@@ -44,7 +71,12 @@ class _CreateState extends State<Create> {
     slogan: _sloganController.text.trim(),
     vocation: selectedVocation,
     id: uuid.v4(),
+
+
     ),);
+
+
+    Navigator.push(context,MaterialPageRoute(builder: (ctx)=> Home()));
   }
 
 

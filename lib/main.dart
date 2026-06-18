@@ -6,7 +6,7 @@ import 'package:rpg/theme.dart';
 void main() {
   runApp( MaterialApp(
     theme: primaryTheme,
-    home: Create()));
+    home: Home()));
 }
 
 class SandBox extends StatelessWidget {
