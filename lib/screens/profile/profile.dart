@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rpg/screens/profile/skill_list.dart';
 import 'package:rpg/screens/profile/stats_table.dart';
 import 'package:rpg/shared/styledtext.dart';
 import 'package:rpg/models/character.dart';
@@ -69,6 +70,8 @@ class Profile extends StatelessWidget {
                       ),
                       Container(alignment: Alignment.center,
                       child: StatTable(character),),
+                      SkillLIst(character),
+                      const SizedBox(height: 20),
           ],
         ),
       ),
