@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "793528726237",
+    "project_id": "rpg-v1-4fe67",
+    "storage_bucket": "rpg-v1-4fe67.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793528726237:android:ff5c38e7103de94c6ea134",
+        "android_client_info": {
+          "package_name": "com.example.rpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZIxwdzAHadFNPQBf6X2ZQ_HIW9CiZiFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

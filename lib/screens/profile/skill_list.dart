@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rpg/models/character.dart';
 import 'package:rpg/models/skills.dart';
+import 'package:rpg/services/character_store.dart';
 import 'package:rpg/shared/styledbutton.dart';
 import 'package:rpg/shared/styledtext.dart';
 import 'package:rpg/theme.dart';
@@ -75,6 +77,8 @@ Widget build(BuildContext context) {
             const SizedBox(height: 20),
             StyledText(selectedSkill.name),
             styledbutton(onPressed: (){
+              Provider.of<CharacterStore>(context,listen: false).saveCharacter(widget.character);
+
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Styledheading('Character was saved'),showCloseIcon: true,duration: Duration(seconds: 2),backgroundColor: AppColors.secondaryColor,
               ),);
               
