@@ -17,11 +17,14 @@ class CharacterCard extends StatelessWidget {
         child: Row(
           children: [
             // fixed-size image with placeholder on load error
-            Image.asset(
-              'assets/img/vocations/${characters.vocation.image}',
-              width: 80,
-              height: 80,
-              fit: BoxFit.cover,
+            Hero(
+             tag: characters.id.toString(),
+              child: Image.asset(
+                'assets/img/vocations/${characters.vocation.image}',
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+              ),
             ),
             const SizedBox(width: 16),
 

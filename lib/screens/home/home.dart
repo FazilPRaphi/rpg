@@ -17,40 +17,50 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    Provider.of<CharacterStore>(context,listen: false).fetchCharactersOnce();
+    Provider.of<CharacterStore>(context, listen: false).fetchCharactersOnce();
 
-  
     super.initState();
   }
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Styledtitle("Home Page"),
-        centerTitle: true,
-        
-      ),
+      appBar: AppBar(title: Styledtitle("Home Page"), centerTitle: true),
       body: Container(
         padding: const EdgeInsets.all(16),
-        
+
         child: Column(
           children: [
             Expanded(
               child: Consumer<CharacterStore>(
-
-                builder: (context,value,child) {
-                  return ListView.builder(itemBuilder: (_,index){
-                    
-                    return CharacterCard(value.characters[index]);
-                  },itemCount: value.characters.length,);
-                }
+                builder: (context, value, child) {
+                  return ListView.builder(
+                    itemBuilder: (_, index) {
+                      return Dismissible(
+                        key: ValueKey(value.characters[index].id),
+                        onDismissed: (direction) => {
+                          Provider.of<CharacterStore>(
+                            context,
+                            listen: false,
+                          ).removeCharacter(value.characters[index]),
+                        },
+                        child: CharacterCard(value.characters[index]),
+                      );
+                    },
+                    itemCount: value.characters.length,
+                  );
+                },
               ),
             ),
-            styledbutton(onPressed: (){
-              Navigator.push(context,MaterialPageRoute(  builder: (ctx)=> CreateScreen()));
-            }, child: Styledheading("Create new"))
+            styledbutton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (ctx) => CreateScreen()),
+                );
+              },
+              child: Styledheading("Create new"),
+            ),
           ],
         ),
       ),

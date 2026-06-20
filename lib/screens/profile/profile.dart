@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rpg/screens/profile/heart.dart';
 import 'package:rpg/screens/profile/skill_list.dart';
 import 'package:rpg/screens/profile/stats_table.dart';
 import 'package:rpg/shared/styledtext.dart';
@@ -18,31 +19,41 @@ class Profile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Center(
-              child: Container(
-                padding: EdgeInsets.all(20),
-                color: AppColors.secondaryAccent.withOpacity(.7),
-                
-                child: Row(children: [
-
-                  Image.asset(
-                  'assets/img/vocations/${character.vocation.image}',
-                  width: 150,
-                  height: 150,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Styledheading(character.vocation.title),
-                      StyledText(character.vocation.description),
-
+              child: Stack(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    color: AppColors.secondaryAccent.withOpacity(.7),
+                    
+                    child: Row(children: [
+                  
+                      Hero(
+                        tag: character.id.toString(),
+                        child: Image.asset(
+                        'assets/img/vocations/${character.vocation.image}',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover,
+                                        ),
+                      ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Styledheading(character.vocation.title),
+                          StyledText(character.vocation.description),
+                  
+                        ],
+                      ),
+                    )
                     ],
+                    )
+                    
+                    
                   ),
-                )
-                ],)
-                
+            Positioned(top: 10, right: 10, child: Heart(character.isfav, character: character)),
+                ],
               ),
             ),
                       const SizedBox(height:10),
@@ -72,6 +83,7 @@ class Profile extends StatelessWidget {
                       child: StatTable(character),),
                       SkillLIst(character),
                       const SizedBox(height: 20),
+          
           ],
         ),
       ),
