@@ -44,7 +44,7 @@ Here is a visual overview of the application flow:
 
 | 🏠 Home Screen | ➕ Character Creation | 👤 Character Profile |
 | :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/250x500.png?text=Home+Screen" width="250" alt="Home Screen"/> | <img src="https://via.placeholder.com/250x500.png?text=Create+Character" width="250" alt="Create Character"/> | <img src="https://via.placeholder.com/250x500.png?text=Character+Profile" width="250" alt="Character Profile"/> |
+| <img src="screenshots/home.png" width="250" alt="Home Screen"/> | <img src="screenshots/create.png" width="250" alt="Create Character"/> | <img src="screenshots/profile.png" width="250" alt="Character Profile"/> |
 | *View your list of characters* | *Select vocations & customize stats* | *Inspect level, skills, and attributes* |
 
 ---
